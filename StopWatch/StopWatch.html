@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .stopwatch {
+            background-color: white;
+            padding-top: 20px;
+            padding-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            font-size: 80px;
+            gap: 5px;
+            margin: 0 auto;       
+        }
+        h1 {
+            font-size: 60px;
+            font-weight: normal;
+            margin: auto;
+            margin-bottom: 10px;
+            margin-top: px;
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: normal;
+        }
+        button {
+            background-color: white;
+            border: 1px solid black;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>StopWatch</h1>
+    <div class="stopwatch">
+        <div data-content="minutes"></div>m
+        <div data-content="seconds"></div>s
+    </div>
+        <button id="handler" onclick="startStop()">Start</button>
+        <button onclick="Reset()">Reset</button>
+        <script>
+            const minutes = document.querySelector('[data-content="minutes"]')
+            const seconds = document.querySelector('[data-content="seconds"]')
+
+            const stopwatch = (min, sec = 0) => {   
+                minutes.textContent = min
+                seconds.textContent = sec
+
+                if (sec === 0) {
+                    sec = 59
+                    min--
+                } else {
+                    sec--
+                }
+                if (min > 0 && sec > 0)
+                setTimeout (() => stopwatch (min, sec), 1000)
+    
+            }
+
+            stopwatch (15)
+
+            
+        </script>
+</body>
+</html>

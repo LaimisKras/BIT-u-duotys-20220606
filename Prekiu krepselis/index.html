@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prekių krepšelis</title>
+    <script src="https://kit.fontawesome.com/d9f0dbfa9a.js" crossorigin="anonymous"></script>
+    <style>
+        button {
+            cursor: pointer;
+        }
+        .fa-solid {
+            margin-left: 50px;
+        }
+        /* table, th, td  {
+            border: 1px solid black;
+            width: 30%;
+            border-collapse: collapse;
+            
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+        } */ 
+    </style>
+</head>
+<body>
+
+    <h1>Prekių krepšelis<i class="fa-solid fa-cart-shopping"></i></h1>
+
+    <form>
+        <div>
+            <label>Įveskite prekę</label>
+            <input type="text" name="preke">
+            <button type="reset">Ištrinti</button>
+        </div>
+
+        <br>
+    <div>
+        <button type="submit">Į krepšelį</button>
+    </div>
+        
+    </form>
+
+    <br>
+
+    <div class="rezultatas">
+        <!-- <table>
+            <thead>
+                <th>Prekė</th>
+                <th>Kiekis</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="name"></td>
+                    <td>
+                        <input type="number" max="10" min="0">
+                    </td>
+                    <td><button type="reset">Ištrinti</button></td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+
+    <script>
+        const form = document.querySelector('form')
+        form.addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            const data = new FormData(document.querySelector('form'))
+
+            for (const input of data.entries()) {
+                if (input [0]) {
+                    console.log (input)
+                }                
+            }
+            
+            const preke = form.querySelector('input[name="preke"]').value
+            document.querySelector('.rezultatas').innerHTML += `<p>${preke}</p>`
+        
+        })
+
+        // function addToCart(input) {
+        //     let selectedItem = document.createElement('.rezultatas')
+        // }
+    </script>
+</body>
+</html>

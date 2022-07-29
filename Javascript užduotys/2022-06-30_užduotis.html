@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketvirta užduotis</title>
+</head>
+<body>
+    <script>
+
+
+        function Random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        document.write ('<h4>Pirma užduotis:</h4>');
+
+        const masyvas = []; 
+
+        for (let i = 0; i < 30; i++) {         
+             masyvas.push (Random (5, 25));        
+        }
+
+
+        const naujasmasyvas = []; 
+
+        for (let i = 0; i < 30; i++) {         
+             naujasmasyvas.push (masyvas[i]-[i]);       
+        }
+
+
+        const papildytasmasyvas = [];
+
+        for (let i = 0; i < 10; i++) {
+                papildytasmasyvas.push(Random (5, 25));
+            }
+
+
+        const masyvasPoriniai = [];
+        const masyvasNeporiniai = [];
+        let counter = 0;
+        let didziausias = 0;
+        let rezult = 0;
+        let poriniai = 0;
+        let suma = 0;
+        let trinti = 0;
+
+
+        didziausias = Math.max (...masyvas)
+
+        for(let i = 0; i < masyvas.length; i++) {
+
+            if (masyvas[i] > 10) {
+                counter++ 
+            }        
+             
+            if (masyvas[i] === didziausias)
+                rezult++
+
+             if (masyvas[i] % 2===0)
+             poriniai++
+             suma += poriniai
+
+             if ([i] % 2 === 0) {
+                masyvasPoriniai.push (masyvas[i]);
+             }
+             
+             if ([i] % 2 === 1) {
+                masyvasNeporiniai.push (masyvas[i]);
+             }
+                          
+        }
+
+
+        const masyvaskopija = [];
+
+        for(let i = 0; i < 30; i++) {
+            masyvaskopija.push (Random (5, 25));
+            if ([i] >= 15 && [i] % 2 === 0) {
+            masyvaskopija[i] = 0; 
+           }                           
+        }
+
+
+        const masyvasbedesimt = [];
+
+        for(let i = 0; i < 30; i++) {
+            masyvasbedesimt.push (Random (5, 25));
+            
+        }
+
+
+        for(let i = masyvasbedesimt.length; i--;) {
+            if (masyvasbedesimt[i] > 10) { 
+            masyvasbedesimt.splice([i], 1)
+            }
+        }
+
+
+        const masyvasbeporiniu = [];
+
+        for(let i = 0; i < 30; i++) {
+            masyvasbeporiniu.push (Random (5, 25));
+            
+        }
+
+
+        for(let i = masyvasbeporiniu.length; i--;) {
+            if ([i] % 2 === 0) { 
+            masyvasbeporiniu.splice([i], 1)
+            }
+        }
+
+
+        
+        document.write (masyvas);
+        console.log ('Pirma užduotis:');
+        console.log (masyvas);
+        
+        document.write ('<h4>Antra užduotis:</h4>');
+        console.log ('Antra užduotis:');
+
+        console.log (`a) Skaičių didesnių už dešimt yra: ${counter}`);
+        document.write (`a) Skaičių didesnių už dešimt yra: ${counter}`);
+
+        document.write ('</br>');
+        
+        document.write (`b) Didžiausias skaičius yra: ${didziausias};`);
+        console.log (`b) Didžiausias skaičius yra: ${didziausias};`);
+        
+        document.write ('</br>');
+        
+        document.write (`b) Didžiausių reikšmių masyve: ${rezult}`);
+        console.log (`b) Didžiausių reikšmių masyve: ${rezult}`);
+        
+        document.write ('</br>');
+
+        console.log (`c) Porinių skaičių suma: ${poriniai}`);
+        document.write (`c) Porinių skaičių suma: ${poriniai}`);
+        
+        document.write ('</br>');
+
+        console.log (`c) Porinių reikšmių suma: ${suma}`);
+        document.write (`c) Porinių reikšmių suma: ${suma}`);
+        
+        document.write ('</br>');
+        document.write ('</br>');
+        
+        console.log ('d) Naujas masyvas minus jų indeksai:');
+        document.write ('d) Naujas masyvas minus jų indeksai:');
+        
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (naujasmasyvas);
+        document.write (naujasmasyvas);
+
+        document.write ('</br>');
+        document.write ('</br>');
+        
+        console.log ('f) Du nauji masyvai iš porinių ir neporinių indeksų reikšmių: ');
+        document.write ('f) Du nauji masyvai iš porinių ir neporinių indeksų reikšmių: ');
+        
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (masyvasPoriniai);  
+        document.write (masyvasPoriniai);
+         
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (masyvasNeporiniai);
+        document.write (masyvasNeporiniai);
+
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (`g) Pirminio masyvo elementai su poriniais indeksais lygius 0 jeigu jie didesni už 15:`);  
+        document.write (`g) Pirminio masyvo elementai su poriniais indeksais lygius 0 jeigu jie didesni už 15:`);
+        
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (masyvaskopija);
+        document.write (masyvaskopija);
+        
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (`g) Iš masyvo ištrinkite visus elementus kurių reikšmės didesnės už 10:`);  
+        document.write (`g) Iš masyvo ištrinkite visus elementus kurių reikšmės didesnės už 10:`);
+
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (masyvasbedesimt);
+        document.write (masyvasbedesimt);
+
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (`g) Iš masyvo ištrinkite visus elementus turinčius porinį indeksą:`);  
+        document.write (`g) Iš masyvo ištrinkite visus elementus turinčius porinį indeksą:`);
+
+        document.write ('</br>');
+        document.write ('</br>');
+
+        console.log (masyvasbeporiniu);
+        document.write (masyvasbeporiniu);
+
+
+
+
+    </script>
+</body>
+</html>

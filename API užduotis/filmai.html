@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmai</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            margin: 40px 0  0;  
+        }
+
+        h1 {
+           position: relative;
+           top: 20px;
+           left: 20px;
+           font-size: 40px;
+        }
+
+        div {
+            margin-bottom: 25px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: normal;
+            text-align: start;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn1 {
+            padding: 5px 20px;
+            margin-right: 30px;
+        }
+
+        .btn2 {
+            padding: 5px 20px;
+            margin-left: 30px;
+        }
+
+        p {
+            position: relative;
+            top: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Filmų sąrašas</h1>
+
+    <div class="container"></div>
+
+    <div class="button">
+        <button class="btn1" onclick=Previous()>Atgal</button>
+        <p class="number"></p> 
+        <button class="btn2" onclick=Next()>Kitas</button>  
+    </div>
+    
+
+    <script>
+
+        const randomfilm = async (nuoroda) => {
+
+            try {
+
+                const resp = await fetch (nuoroda)
+                return await resp.json()
+
+            } catch {
+
+               return false
+        }
+
+        }
+            
+
+        const html = document.querySelector ('.container')
+
+        let Page = 1 
+
+        const skaicius = document.querySelector ('.number')
+
+       
+
+        // let button = document.querySelector ('.button_next')
+        // let button = document.querySelector ('.button_next')
+
+
+        const showfilm = async () => {
+            const resp = await randomfilm ('http://www.omdbapi.com/?apikey=7d9191ab&s=Batman&page=' +Page)
+
+            console.log (resp)
+
+            for (let i = 0; i < 10; i++) {
+                
+                const film = resp.Search[i]
+
+                // document.querySelector ('.image').innerHTML += `<img src="${film.Poster}" alt="">`
+                // document.querySelector ('.name').innerHTML +=  `${film.Title}`
+
+                html.innerHTML += `<div>
+
+                    <img src="${film.Poster}" alt=""></img>
+                    <h4>${film.Title}</h4>
+                    <h4>${film.Year}</h4>
+                    <h4>${film.Type}</h4>
+                    
+                    </div>`
+
+
+            }
+            
+            skaicius.innerHTML = `<p>Esate puslapyje: ${Page}</p>`
+
+        }
+
+               
+
+        //button.innerHTML = '<button onClick=Next()>next</button>'
+
+        showfilm ()
+
+            const Next = () => {
+
+                html.innerHTML = ''
+
+                Page +=1
+
+                console.log('button veikia')
+
+                showfilm()
+
+        }
+
+
+
+            const Previous = () => {
+
+                if (Page > 1) {
+
+                html.innerHTML = ''
+
+                Page -=1
+
+                console.log('button veikia')
+
+                showfilm()
+            }
+        }
+
+    </script>
+</body>
+</html>

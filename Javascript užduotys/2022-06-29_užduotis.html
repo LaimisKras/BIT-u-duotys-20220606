@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trečia užduotis</title>
+    <style>
+        body {
+            word-break: break-all;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+
+        document.write ('<h4>Pirma užduotis:</h4>');
+
+        let kablelis = ', ';
+        let rezultatas = '';
+
+        for (let i = 1; i <= 3000; i++) {
+            if(i === 2926)
+                kablelis = ''
+
+            if (i % 77 === 0)
+                rezultatas += i + kablelis
+          
+        }
+
+        document.write (rezultatas);
+
+
+
+        document.write ('<h4>Antra užduotis:</h4>');
+
+        kvadratas ();
+
+        function kvadratas () {
+            
+            let kolonos = 25;
+            let eilutes = 25;
+
+        for (let i=1; i<=eilutes; i++) {
+            for (let j=1; j<=kolonos; j++) {
+                document.write ('*');
+                }
+                document.write ('</br>');              
+            }
+        }
+
+
+
+        document.write ('<h4>Ketvirta užduotis:</h4>');
+
+
+        function Random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        //let html = ''
+        //let counter = 0
+        const skaicius = 'S';
+        const herbas = 'H';
+        let kritimas = 0;
+
+
+        
+        for (let i = 0; i < 1; i++) {
+            let monetos_metimas = Random (0, 1)
+            
+            if (skaicius < 1 ) {
+
+            kritimas = herbas;
+
+            } if (herbas > 0) {
+
+            kritimas = skaicius;
+                         
+        }
+        document.write (`<h4>Monetos metimas: ${monetos_metimas}; Rezultatas: ${herbas}`);
+    }
+
+    
+
+       // const S = 0;
+        //const H = 1;
+        //let kritimas = 0;
+
+
+       // if (monetos_metimas < 1) {
+          //  kritimas = S
+       // } else {
+           // kritimas = H
+       // }
+        //let skaicius = Random (1, 1);
+
+        //if (herbas === 0)
+        
+        
+        //document.write (`<h4>Herbas: ${skaicius}</h4>`);
+
+
+
+
+
+        document.write ('<h4>Penkta užduotis:</h4>');
+
+
+        function Random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+     
+        let pirmas = Random (10, 20);
+        let antras = Random (5, 25);
+
+        for (let i = 0; i <= pirmas; i++) {
+           
+        }
+
+         
+
+        document.write (`<h4>Petras: ${pirmas}; Kazys: ${antras}; Partiją laimėjo:`);
+        
+
+
+    </script>
+</body>
+</html>
